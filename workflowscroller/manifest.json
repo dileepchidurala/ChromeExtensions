@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "version": "2.0",
+  "name": "Workflow Scroller",
+  "description": "To scroll to non zero tables in workflow conversion",
+  "permissions": ["activeTab"],
+  "icons": {
+    "128": "Workflowscroller.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "Workflowscroller.png",
+    "default_title": "Scroll you to next Non-Zero table"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*/jira/secure/project/SelectProjectWorkflowSchemeStep2!default.jspa"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
